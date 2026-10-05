@@ -1,0 +1,76 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install and build IPLME",
+			"type": "shell",
+			"command": "npm install && npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Install and build IPLME",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Install and build IPLME",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Start IPLME development server",
+			"type": "shell",
+			"command": "npm run dev -- --host 127.0.0.1",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install and build IPLME",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Install and build IPLME",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Check Git publish safety",
+			"type": "shell",
+			"command": "git init && git check-ignore .env && git status --short --ignored && git config --get user.name && git config --get user.email",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Publish IPLME to GitHub",
+			"type": "shell",
+			"command": "git add -A && git commit -m \"Initial IPLME Supabase app\" && git branch -M main && git remote add origin https://github.com/prajwalchouri-ops/iplme.git && git push -u origin main",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
