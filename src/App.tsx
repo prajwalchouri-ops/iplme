@@ -13,6 +13,16 @@ const dateFormatter = new Intl.DateTimeFormat("en-IN", {
   minute: "2-digit",
 });
 
+const teamCodes: Record<string, string> = {
+  "Royal Challengers Bengaluru": "RCB",
+  "Mumbai Indians": "MI",
+  "Chennai Super Kings": "CSK",
+};
+
+function getTeamCode(name: string) {
+  return teamCodes[name] ?? name.slice(0, 3).toUpperCase();
+}
+
 const filterOptions: { value: MatchFilter; label: string }[] = [
   { value: "all", label: "All matches" },
   { value: "live", label: "Live" },
@@ -30,9 +40,9 @@ function MatchList({ matches }: Readonly<{ matches: readonly Match[] }>) {
             <span>{match.city} · {match.venue}</span>
           </div>
           <div className="matchup">
-            <div className="team"><span className="team-badge">{match.home_team.slice(0, 3).toUpperCase()}</span><strong>{match.home_team}</strong></div>
+            <div className="team"><span className="team-badge">{getTeamCode(match.home_team)}</span><strong>{match.home_team}</strong></div>
             <span className="versus">V</span>
-            <div className="team away-team"><span className="team-badge">{match.away_team.slice(0, 3).toUpperCase()}</span><strong>{match.away_team}</strong></div>
+            <div className="team away-team"><span className="team-badge">{getTeamCode(match.away_team)}</span><strong>{match.away_team}</strong></div>
           </div>
           <div className={`match-status ${match.status}`}>
             {match.status === "live" && <span className="status-dot" />}
